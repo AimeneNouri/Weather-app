@@ -59,12 +59,16 @@ h1{
   font-size: 20px;
   appearance: none;
   border: none;
-  box-shadow: 0px 0px 6px rgba(70, 70, 70, 0.75);
+  box-shadow: 0px 0px 8px rgba(56, 56, 56, 0.75);
   outline: none;
   background: none;
   background-color: rgba(255,255,255,0.5);
-  border-radius: 0px 30px 0px 30px;
+  border-radius: 30px;
   transition: 0.4s;
+}
+.search-box .search-bar:focus{
+  box-shadow: 0px 0px 20px rgba(70, 70, 70, 0.75);
+  background-color: #f0f0f080;
 }
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

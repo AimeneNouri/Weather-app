@@ -20,12 +20,9 @@
       <div class="temperature">{{  Math.round(weather.main.temp).toFixed(0)  }}<span>°c</span></div>
       <div class="weather">{{ weather.weather[0].main }}</div>
       <div class="high-low">{{ weather.main.temp_min }}°c / {{ weather.main.temp_max }}°c</div>
-    </div>
+      <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
+   </div>
   </div>
-  <footer class="page-footer">
-    <small>Made with <span>❤</span> by <a href="https://github.com/AimeneNouri" target="_blank">Aimene</a>
-    </small>
-  </footer>
   </div>
 </template>
 
@@ -89,10 +86,10 @@ html, body{
 }
 h1{
   font-weight: bold;
+  font-size: 40px;
 }
 .container {
-  position: relative;
-  margin: calc(5px + 2vh + 2vw) auto 0 auto;
+  margin: calc(0px + 2vh + 0vw) auto 0 auto;
   padding: 0;
   width: 90%;
   max-width: 840px;
@@ -102,12 +99,12 @@ h1{
 .search-box
 {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .search-box .search-bar{
   width: 90%;
-  padding: 15px;
+  padding: 13px;
   color: rgb(70, 68, 68);
   font-size: 20px;
   appearance: none;
@@ -130,7 +127,6 @@ h1{
 .location .city{
   font-size: 32px;
   font-weight: 500;
-  margin-bottom: 5px;
 }
 
 .location .date{
@@ -149,61 +145,23 @@ h1{
 }
 
 .weather-wrap .weather{
-  color: #2c3e50;
-  padding: 10px 25px;
-  font-size: 26px;
+  color: #f1eeee;
+  font-size: 30px;
   font-weight: 900;
   font-style: italic;
-  background-color: rgba(255,255,255,0.5);
-  display: inline-block;
-  border-radius: 10px 0px 0px 10px;
-  box-shadow: 0px 6px rgba(49, 71, 90, 0.25)
+  text-shadow: 2px 6px 3px rgba(38, 49, 59, 0.75);
 }
 .weather-wrap .high-low{
-  color: #2c3e50;
-  padding: 10px 25px;
-  font-size: 26px;
+  color: #f1eeee;
+  font-size: 30px;
   font-weight: 900;
-  background-color: rgba(255,255,255,0.5);
-  display: inline-block;
-  border-radius: 0px 10px 10px 0px;
-  box-shadow: 0px 6px rgba(49, 71, 90, 0.25)
+  text-shadow: 2px 6px 3px rgba(38, 49, 59, 0.75);
 }
-/* FOOTER
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.page-footer {
-  color: #ffffff;
-  text-align: center;
-  font-size: 22px;
-  position: absolute;
-  margin-left: 5px;
-  margin-bottom: 5px;
-  bottom: 0;
+.weather-wrap .humidity{
+  color: #f1eeee;
+  font-size: 24px;
+  font-weight: 900;
+  text-shadow: 2px 6px 3px rgba(38, 49, 59, 0.75);
 }
 
-.page-footer span {
-  color: rgb(255, 0, 0);
-}
-.page-footer a {
-  text-decoration: none;
-  color: #ffffff;
-  position: relative;
-   bottom: 0;
-  left: 0;
-  right: 0;
-  }
-.page-footer a:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: 60%;
-  left: -0.01em;
-  right: -0.01em;
-  bottom: 0;
-  transition: top 200ms cubic-bezier(0, .8, .13, 1);
-  background-color: #ff000085;
-}
-.page-footer a:hover:after {
-  top: 0%;
-}
 </style>

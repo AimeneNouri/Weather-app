@@ -16,7 +16,7 @@
       <div class="city">Casablanca, MA</div>
       <div class="date">Saturday</div>
     </section>
-    <div class="current">
+    <div class="weather-wrap">
       <div class="temperature">15<span>°c</span></div>
       <div class="weather">Sunny</div>
       <div class="high-low">13°c / 16°c</div>
@@ -60,7 +60,7 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: rgb(44, 62, 80);
+  color: #2c3e50;
   margin-top: 60px;
   align-items: center;
 }
@@ -104,6 +104,7 @@ h1{
   background-color: rgba(255,255,255,0.5);
   border-radius: 30px;
   transition: 0.4s;
+  border-bottom: 4px solid #2c3e50;
 }
 .search-box .search-bar:focus{
   box-shadow: 0px 0px 20px rgba(70, 70, 70, 0.75);
@@ -122,11 +123,37 @@ h1{
   font-size: 20px;
 }
 
-.current .temperature{
+.weather-wrap .temperature{
   color: #ffffff;
   font-size: 102px;
   font-weight: 900;
-  text-shadow: 4px 8px rgba(44, 62, 80, 0.6); 
+  text-shadow: 2px 6px rgba(49, 71, 90, 0.6); 
+}
+
+.weather-wrap .temperature span{
+  font-weight: 550;
+}
+
+.weather-wrap .weather{
+  color: #2c3e50;
+  padding: 10px 25px;
+  font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
+  background-color: rgba(255,255,255,0.5);
+  display: inline-block;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: 0px 6px rgba(49, 71, 90, 0.25)
+}
+.weather-wrap .high-low{
+  color: #2c3e50;
+  padding: 10px 25px;
+  font-size: 26px;
+  font-weight: 900;
+  background-color: rgba(255,255,255,0.5);
+  display: inline-block;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 0px 6px rgba(49, 71, 90, 0.25)
 }
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

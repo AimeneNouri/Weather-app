@@ -5,24 +5,25 @@
   <div class="search-box">
 		<input 
       type="text" 
-      placeholder="Tape City Name" 
+      placeholder="City Name" 
       class="search-bar" 
       v-model="requete"
       @keypress="fetchTheWeather"
     /></div> 
   </div>
-  
+  <div class="weter" v-if="typeof weather.main != 'undefined'">
     <section class="location">
-      <div class="city">Casablanca, MA</div>
-      <div class="date">Saturday</div>
+      <div class="city">{{  weather.name  }}, {{  weather.sys.country  }}</div>
+      <div class="date">{{ ladate() }}</div>
     </section>
     <div class="weather-wrap">
-      <div class="temperature">15<span>°c</span></div>
-      <div class="weather">Sunny</div>
-      <div class="high-low">13°c / 16°c</div>
+      <div class="temperature">{{  Math.round(weather.main.temp).toFixed(0)  }}<span>°c</span></div>
+      <div class="weather">{{ weather.weather[0].main }}</div>
+      <div class="high-low">{{ weather.main.temp_min }}°c / {{ weather.main.temp_max }}°c</div>
     </div>
+  </div>
   <footer class="page-footer">
-    <small>Made with <span>❤</span> by <a href="https://github.com/AimeneNouri" target="_blank">Aimene Nouri</a>
+    <small>Made with <span>❤</span> by <a href="https://github.com/AimeneNouri" target="_blank">Aimene</a>
     </small>
   </footer>
   </div>
@@ -43,7 +44,7 @@ export default {
     fetchTheWeather(i){
       if (i.key == "Enter")
       {
-        fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+        fetch(`${this.url_base}weather?q=${this.requete}&units=metric&APPID=${this.api_key}`)
         .then(response => {
           return response.json();
         }).then(this.SetResultat);
@@ -51,6 +52,19 @@ export default {
     },
     SetResultat(res){
       this.weather = res;
+    },
+    ladate() {
+      let i = new Date();
+      let lesmois = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let jourSemaine = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    
+      let jour = jourSemaine[i.getDay()];
+      let date = i.getDate();
+      let mois = lesmois[i.getMonth()];
+      let annee = i.getFullYear();
+
+      //date in string
+      return `${jour} ${date} ${mois} ${annee}`;
     }
   }
 }
